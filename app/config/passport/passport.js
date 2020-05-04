@@ -1,13 +1,13 @@
 // В passport.js мы будем использовать модель пользователя и passport.
 
-var bCrypt = require("bcrypt-nodejs"); // для защиты паролей
+let bCrypt = require("bcrypt-nodejs"); // для защиты паролей
 
 
 module.exports = function (passport, user) {
   // Внутри этого блока мы инициализируем локальную стратегию паспорта и модель пользователя,
   // которая будет передана в качестве аргумента.
-  var User = user;
-  var LocalStrategy = require("passport-local").Strategy;
+  let User = user;
+  let LocalStrategy = require("passport-local").Strategy;
 
   //LOCAL SIGNUP
   // Затем мы определяем нашу пользовательскую стратегию с нашим экземпляром LocalStrategy
@@ -23,7 +23,7 @@ module.exports = function (passport, user) {
       },
       function (req, email, password, done) {
         // В этой функции мы будем обрабатывать данные пользователя.
-        var generateHash = function (password) {
+        let generateHash = function (password) {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
 
@@ -37,9 +37,9 @@ module.exports = function (passport, user) {
               message: "That email is already taken",
             });
           } else {
-            var userPassword = generateHash(password);
+            let userPassword = generateHash(password);
 
-            var data = {
+            let data = {
               email: email,
 
               password: userPassword,
@@ -80,9 +80,9 @@ module.exports = function (passport, user) {
         passReqToCallback: true, // allows us to pass back the entire request to the callback
       },
       function (req, email, password, done) {
-        var User = user;
+        let User = user;
 
-        var isValidPassword = function (userpass, password) {
+        let isValidPassword = function (userpass, password) {
           return bCrypt.compareSync(password, userpass);
         };
 
@@ -102,7 +102,7 @@ module.exports = function (passport, user) {
               return done(null, false, req.flash('message','Invalid username or password'));
             }
 
-            var userinfo = user.get();
+            let userinfo = user.get();
             return done(null, userinfo);
           })
           .catch(function (err) {

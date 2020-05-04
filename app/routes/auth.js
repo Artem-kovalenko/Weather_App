@@ -1,4 +1,4 @@
-var authController = require('../controllers/authcontroller.js');
+let authController = require('../controllers/authcontroller.js');
  
 module.exports = function(app, passport) {
  
@@ -9,6 +9,10 @@ module.exports = function(app, passport) {
     app.get('/signin', authController.signin);
 
     app.get('/dashboard',isLoggedIn, authController.dashboard);
+
+    
+    app.get('/fiveDaysWeather', isLoggedIn, authController.fiveDaysWeather);
+
 
     app.get('/logout',authController.logout);
 
@@ -26,7 +30,7 @@ module.exports = function(app, passport) {
 
 
 
-    //=========== Этот код добавляетназвание города из ИНПУТА в БД =================
+    //=========== Этот код добавляет название города из ИНПУТА в БД =================
     const mysql = require("mysql2");
     const connection = mysql.createConnection({
         host: "127.0.0.1",
@@ -37,37 +41,18 @@ module.exports = function(app, passport) {
     app.post('/dashboard',isLoggedIn, function(req,res){
 
         // ========= Добавление имени города в БД(берем его из инпута)========
+        let cityName = req.body.city_name;
+        let currentUserId = req.user.id;
 
-        var cityName = req.body.city_name;
-        var stringifyedCityName = JSON.stringify(cityName)
-        var cityNamesArr = ["Las Vegas", "Kyiv"];
-        var serializedCityNamesArr = JSON.stringify(cityNamesArr);
-        
-        console.log(cityNamesArr);
-        console.log(serializedCityNamesArr);
-        console.log(cityName);
-        console.log(stringifyedCityName)
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+cityName)
-        console.log(req)
-        // MycityName="Kyivvvvvv"
-        const sql = `UPDATE users SET cityNames = CONCAT(cityNames, ",${cityName}") WHERE id=1;`;
-        // const sql = `UPDATE users SET cityNames="${MycityName}" WHERE id=1;`;
+        const sql = `UPDATE users SET cityNames = CONCAT(cityNames, ",${cityName}") WHERE id=${currentUserId};`;
         
         connection.query(sql, function(err, results) {
             if(err) console.log(err);
-            console.log(results);
         });
-        
-        // connection.end();
 
         res.redirect('/dashboard')
-
     })
     //========================================================
-
-
-
-
 
     function isLoggedIn(req, res, next) {
     
