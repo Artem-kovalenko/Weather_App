@@ -8,7 +8,6 @@ let exphbs = require('express-handlebars');
 const flash = require('connect-flash');
 
 let request = require('request');
-
 app.use(flash());
 
 //For BodyParser

@@ -43,41 +43,36 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                {{#each weather }}
-           
-                    <div class="box"> 
-                        <article class="media">
-                            <div class="media-left">
-                                <figure class="image is-50x50">
-                                    <img src="https://openweathermap.org/img/wn/{{this.icon}}.png" alt="Image">
-                                </figure>
-                            </div>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <span class="title">{{this.city}}</span>
-                                        <br>
-                                        <span class="subtitle">{{this.temperature}}° C</span>
-                                        <br> {{this.description}}
-                                    </p>
+
+                    {{#each weather }}
+                    <a href="fiveDaysWeather/{{this.city}}" style="display:block; margin-bottom: 20px;">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left">
+                                    <figure class="image is-50x50">
+                                        <img src="https://openweathermap.org/img/wn/{{this.icon}}.png" alt="Image">
+                                    </figure>
                                 </div>
-                            </div>
-                            <div class="media-right">
-                                <form id="weather" name="weather" method="get" action="/fiveDaysWeather">
-                                    <label>Weather for 5 days:</label>
-                                    <input class="btn" type="submit" value="Show weather"
-                                        style="
-                                        display: block;
-                                        margin-top: 10px;
-                                        margin-left: 20px;
-                                        "
-                                     />
-                                </form>
-                            </div>
-                        </article> 
-                    </div>
-                
-                {{/each}}
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <span class="title">{{this.city}}</span>
+                                            <br>
+                                            <span class="subtitle">{{this.temperature}}° C</span>
+                                            <br> {{this.description}}
+                                        </p> 
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span style="color: gray; font-size:15px">click to see 5 <br/>days forecast</span>
+                                </div>
+                                
+                            </article>
+                        </div>
+                    </a>
+                    
+                    {{/each}}
+
                 </div>
             </div>
         </div>

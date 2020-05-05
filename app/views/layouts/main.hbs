@@ -1,21 +1,75 @@
-<div class="container" style="
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+<body>
+    <div class="container" style="
     display: flex;
     align-items: center;
     flex-direction: column;
     ">
     <div class="header" style="
     display: flex;
-    width: 23%;
+    width: 32%;
     padding-top: 17px;
     justify-content:space-around;
     ">
-        <form action="/signin"><input class="btn" type="submit" value="Sign In" /></form>
+    
+        <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+            onmouseout="this.style.backgroundColor='white'; this.style.color='black';" 
+            style=" 
+            display: block;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 4px 11px;
+            margin-bottom: 13px;
+            color: black;
+            transition: .3s;
+         " href="/signin" >Sign In</a>
+    
+        <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+            onmouseout="this.style.backgroundColor='white'; this.style.color='black';" 
+            style="
+            display: block;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 4px 11px;
+            margin-bottom: 13px;
+            transition: .3s;
+            color: black;
+        " href="/signup">Sign Up</a>
 
-        <form action="/signup"><input class="btn" type="submit" value="Sign Up" /></form>
+        <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+            onmouseout="this.style.backgroundColor='white'; this.style.color='black';" 
+            style="   
+            display: block;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 4px 11px;
+            margin-bottom: 13px;
+            transition: .3s;
+            color: black;
+        " href="/dashboard">Your Wearher</a>
 
-        <form action="/dashboard"><input class="btn" type="submit" value="Your Wearher" /></form>
-
-        <form action="/logout"><input class="btn" type="submit" value="Logout" /></form>
+        <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+            onmouseout="this.style.backgroundColor='white'; this.style.color='black';" 
+            style=" 
+            display: block;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 4px 11px;
+            margin-bottom: 13px;
+            color: black;
+            transition: .3s;
+         " href="/logout">Logout</a>
+        
     </div>
     {{{body}}}
 </div>
+</body>
+</html>
