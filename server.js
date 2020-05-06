@@ -3,11 +3,9 @@ let app = express();
 let passport   = require('passport');
 let session    = require('express-session');
 let bodyParser = require('body-parser');
-let env = require('dotenv').config();
 let exphbs = require('express-handlebars');
 const flash = require('connect-flash');
 
-let request = require('request');
 app.use(flash());
 
 //For BodyParser
@@ -37,7 +35,7 @@ app.set('view engine', '.hbs');
 let models = require("./app/models");
 
 //Routes
-let authRoute = require('./app/routes/auth.js')(app, passport);
+require('./app/routes/index.js')(app, passport);
 
 //load passport strategies
 require('./app/config/passport/passport.js')(passport, models.user);

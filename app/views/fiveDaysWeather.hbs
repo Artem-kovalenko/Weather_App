@@ -1,68 +1,48 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Five days forecast</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
-</head>
-
-<body>
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <div class="container" style="
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container" style="
             display: flex;
             justify-content: space-between;
             align-items: center;
             ">
-                <h1 class="title" style="margin:0">
-                    Five days forecast
-                </h1>
-                <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
-                    onmouseout="this.style.backgroundColor='white'; this.style.color='black';"                 
-                 href="/dashboard?" style="
-                font-size: 20px;
+            <h1 class="title" style="margin:0 850px 0 0;">
+                Five days forecast
+            </h1>
+            <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';"
+                onmouseout="this.style.backgroundColor='white'; this.style.color='black';"
+                style="
                 display: block;
-                font-size: 19px;
                 border: 1px solid black;
-                border-radius: 8px;
+                border-radius: 5px;
                 background-color: #ffffff;
                 color: black;
                 transition: .3s;
-                padding: 6px 12px;
-                ">Go back</a>
-            </div>
+                padding: 4px 11px;
+                "href="/dashboard?">Go back</a>
         </div>
-    </section>
-    <div class="wrapper" style="display: flex; flex-wrap:wrap; margin-top: 70px; margin-left:25px">
-        
-    {{#each fiveDaysWeather}}
-        <div class="box" style="margin: 20px 20px;">
-            <article class="media">
-                <div class="media-content">
-                    <div class="content">
-                        <h2>{{this.city}}</h2>
-                        <span>{{this.time}}</span>
-                        <figure class="image is-50x50">
-                            <img src="https://openweathermap.org/img/wn/{{this.icon}}.png" alt="Image">
-                        </figure>
-                        <span>{{this.description}}</span>
-                        <br>
-                        <span>Temperature: {{this.temperature}}° C</span>
-                        <br>
-                        <span>Wind: {{this.wind}} m/s</span>
-                        <br>
-                        <span>Preassure: {{this.pressure}}</span>
-                    </div>
+    </div>
+</section>
+<div class="wrapper" style="display: flex; flex-wrap:wrap; margin-top: 70px; margin-left:25px">
+
+{{#each fiveDaysWeather}}
+    <div class="box" style="margin: 20px 20px;">
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <h2>{{this.city}}</h2>
+                    <span>{{this.time}}</span>
+                    <figure class="image is-50x50">
+                        <img src="https://openweathermap.org/img/wn/{{this.icon}}.png" alt="Image">
+                    </figure>
+                    <span>{{this.description}}</span>
+                    <br>
+                    <span>Temperature: {{this.temperature}}° C</span>
+                    <br>
+                    <span>Wind: {{this.wind}} m/s</span>
+                    <br>
+                    <span>Preassure: {{this.pressure}}</span>
                 </div>
-            </article>
-        </div>
-    {{/each}}
-
-</div>
-
-</body>
-
-</html>
+            </div>
+        </article>
+    </div>
+{{/each}}

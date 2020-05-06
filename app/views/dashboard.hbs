@@ -1,50 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>What's the weather like?</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
-</head>
-
-<body>
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    What's the weather like?
-                </h1>
-            </div>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container" style="
+             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            ">
+            <h1 class="title" style="margin:0 740px 0 0;">
+                What's the weather like?
+            </h1>
+            
+            <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';"
+                onmouseout="this.style.backgroundColor='white'; this.style.color='black';" 
+                style=" 
+                    display: block;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    padding: 4px 11px;
+                    color: black;
+                    transition: .3s;
+                    background-color:white;
+                " href="/logout">Logout</a>
         </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    <form method="POST">
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                <input class="input" name="city_name" type="text" placeholder="City Name">
-                            </div>
-                            <div class="control">
-                                <button class="button is-info">
-                                    Add City
-                                </button>
-                            </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-offset-4 is-4">
+                <form method="POST">
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input class="input" name="city_name" type="text" placeholder="City Name">
                         </div>
-                    </form>
-                </div>
+                        <div class="control">
+                            <button class="button is-info">
+                                Add City
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
+    </div>
+</section>
 
-                    {{#each weather }}
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-offset-4 is-4">
+                {{#each weather }}
                     <a href="fiveDaysWeather/{{this.city}}" style="display:block; margin-bottom: 20px;">
                         <div class="box">
                             <article class="media">
@@ -60,25 +65,20 @@
                                             <br>
                                             <span class="subtitle">{{this.temperature}}° C</span>
                                             <br> {{this.description}}
-                                        </p> 
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="media-right">
-                                    <span style="color: gray; font-size:15px">click to see 5 <br/>days forecast</span>
+                                    <span style="color: gray; font-size:15px">click to see 5 <br />days forecast</span>
                                 </div>
-                                
                             </article>
                         </div>
                     </a>
-                    
-                    {{/each}}
-
-                </div>
+                {{/each}}
             </div>
         </div>
-    </section>
-    <footer class="footer" style="width: 100%;">
-    </footer>
-</body>
+    </div>
+</section>
 
-</html>
+<footer class="footer" style="width: 100%;">
+</footer>

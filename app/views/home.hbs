@@ -1,0 +1,60 @@
+<div class="container" style="
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    ">
+    <div class="header" style="
+    display: flex;
+    width: 32%;
+    padding-top: 17px;
+    justify-content:space-around;
+    ">
+        {{#if userLoggedInReverse}}
+            <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';"
+                onmouseout="this.style.backgroundColor='white'; this.style.color='black';" style=" 
+                display: block;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 4px 11px;
+                margin-bottom: 13px;
+                color: black;
+                transition: .3s;
+            " href="/signin">Sign In</a>
+
+            <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';"
+                onmouseout="this.style.backgroundColor='white'; this.style.color='black';" style="
+                display: block;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 4px 11px;
+                margin-bottom: 13px;
+                transition: .3s;
+                color: black;
+            " href="/signup">Sign Up</a>
+        {{/if}}
+        
+        {{#if userLoggedIn}}
+            <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';"
+                onmouseout="this.style.backgroundColor='white'; this.style.color='black';" style="   
+                display: block;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 4px 11px;
+                margin-bottom: 13px;
+                transition: .3s;
+                color: black;
+            " href="/dashboard">Your Wearher</a>
+
+            <a onmouseover="this.style.backgroundColor='black'; this.style.color='white';"
+                onmouseout="this.style.backgroundColor='white'; this.style.color='black';" style=" 
+                display: block;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 4px 11px;
+                margin-bottom: 13px;
+                color: black;
+                transition: .3s;
+            " href="/logout">Logout</a>
+        {{/if}}
+    </div>
+</div>

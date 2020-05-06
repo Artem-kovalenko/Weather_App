@@ -99,6 +99,7 @@ module.exports = function (passport, user) {
             }
 
             if (!isValidPassword(user.password, password)) {
+              console.log("password invalid")
               return done(null, false, req.flash('message','Invalid username or password'));
             }
 
@@ -106,7 +107,8 @@ module.exports = function (passport, user) {
             return done(null, userinfo);
           })
           .catch(function (err) {
-            console.log("Error:", err);
+            console.log("Error:========================");
+            console.log(err)
 
             return done(null, false, {
               message: "Something went wrong with your Signin",
